@@ -1,0 +1,92 @@
+2026-01-05 20:00:10,427 - INFO - root - Application started with 'Adapta' theme.
+2026-01-05 20:21:09,352 - INFO - downloader_core - Job 1 state changed to ANALYZING
+2026-01-05 20:21:11,552 - INFO - downloader_core - Job 1: Playlist found: https://zetvideo.net/content/stream/serials/stranger_things/s05/stranger_things_s05e01_chapter_one__the_crawl_35326/hls/480/index.m3u8
+2026-01-05 20:21:11,731 - INFO - downloader_core - Job 1: Found 858 segments.
+2026-01-05 20:21:11,732 - INFO - downloader_core - Job 1 state changed to DOWNLOADING
+2026-01-05 20:21:11,734 - INFO - downloader_core - Job 1: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_1
+2026-01-05 20:27:02,012 - INFO - downloader_core - Job 1 state changed to MERGING
+2026-01-05 20:27:02,013 - INFO - downloader_core - Job 1: Merging segments into D:\05_01.ts...
+2026-01-05 20:27:11,900 - INFO - downloader_core - Job 1: Cleaning up temporary files.
+2026-01-05 20:27:12,143 - INFO - downloader_core - Job 1 state changed to COMPLETED
+2026-01-05 20:27:12,143 - INFO - downloader_core - Job 1: Download complete: D:\05_01.ts
+2026-01-05 21:20:35,386 - INFO - downloader_core - Job 2 state changed to ANALYZING
+2026-01-05 21:20:36,349 - INFO - downloader_core - Job 2: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e01.ttp.dub_119904/hls/720/index.m3u8
+2026-01-05 21:20:36,506 - INFO - downloader_core - Job 2: Found 858 segments.
+2026-01-05 21:20:36,508 - INFO - downloader_core - Job 2 state changed to DOWNLOADING
+2026-01-05 21:20:36,509 - INFO - downloader_core - Job 2: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_2
+2026-01-05 21:21:08,866 - INFO - downloader_core - Job 3 state changed to ANALYZING
+2026-01-05 21:21:09,300 - INFO - downloader_core - Job 3: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e02.ttp.dub_119905/hls/720/index.m3u8
+2026-01-05 21:21:09,382 - INFO - downloader_core - Job 3: Found 695 segments.
+2026-01-05 21:21:09,383 - INFO - downloader_core - Job 3 state changed to DOWNLOADING
+2026-01-05 21:21:09,384 - INFO - downloader_core - Job 3: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_3
+2026-01-05 21:21:43,335 - INFO - downloader_core - Job 4 state changed to ANALYZING
+2026-01-05 21:21:44,498 - INFO - downloader_core - Job 4: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e03.ttp.dub_119906/hls/720/index.m3u8
+2026-01-05 21:21:44,600 - INFO - downloader_core - Job 4: Found 834 segments.
+2026-01-05 21:21:44,601 - INFO - downloader_core - Job 4 state changed to DOWNLOADING
+2026-01-05 21:21:44,602 - INFO - downloader_core - Job 4: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_4
+2026-01-05 21:22:20,007 - INFO - downloader_core - Job 5 state changed to ANALYZING
+2026-01-05 21:22:20,386 - INFO - downloader_core - Job 5: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e04.ttp.dub_119907/hls/720/index.m3u8
+2026-01-05 21:22:20,479 - INFO - downloader_core - Job 5: Found 1042 segments.
+2026-01-05 21:22:20,480 - INFO - downloader_core - Job 5 state changed to DOWNLOADING
+2026-01-05 21:22:20,480 - INFO - downloader_core - Job 5: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_5
+2026-01-05 21:22:50,210 - INFO - downloader_core - Job 6 state changed to ANALYZING
+2026-01-05 21:22:50,726 - INFO - downloader_core - Job 6: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e05.ttp.dub_120770/hls/720/index.m3u8
+2026-01-05 21:22:50,855 - INFO - downloader_core - Job 6: Found 817 segments.
+2026-01-05 21:22:50,856 - INFO - downloader_core - Job 6 state changed to DOWNLOADING
+2026-01-05 21:22:50,857 - INFO - downloader_core - Job 6: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_6
+2026-01-05 21:29:09,022 - INFO - downloader_core - Job 4 state changed to MERGING
+2026-01-05 21:29:09,022 - INFO - downloader_core - Job 4: Merging segments into D:\05_03.ts...
+2026-01-05 21:29:19,623 - INFO - downloader_core - Job 4: Cleaning up temporary files.
+2026-01-05 21:29:19,909 - INFO - downloader_core - Job 4 state changed to COMPLETED
+2026-01-05 21:29:19,910 - INFO - downloader_core - Job 4: Download complete: D:\05_03.ts
+2026-01-05 21:29:52,241 - INFO - downloader_core - Job 2 state changed to MERGING
+2026-01-05 21:29:52,241 - INFO - downloader_core - Job 2: Merging segments into D:\05_01_.ts...
+2026-01-05 21:30:02,482 - INFO - downloader_core - Job 2: Cleaning up temporary files.
+2026-01-05 21:30:02,752 - INFO - downloader_core - Job 2 state changed to COMPLETED
+2026-01-05 21:30:02,752 - INFO - downloader_core - Job 2: Download complete: D:\05_01_.ts
+2026-01-05 21:31:39,050 - INFO - downloader_core - Job 3 state changed to MERGING
+2026-01-05 21:31:39,051 - INFO - downloader_core - Job 3: Merging segments into D:\05_02.ts...
+2026-01-05 21:31:53,619 - INFO - downloader_core - Job 3: Cleaning up temporary files.
+2026-01-05 21:31:53,858 - INFO - downloader_core - Job 3 state changed to COMPLETED
+2026-01-05 21:31:53,858 - INFO - downloader_core - Job 3: Download complete: D:\05_02.ts
+2026-01-05 21:34:43,496 - INFO - downloader_core - Job 6 state changed to MERGING
+2026-01-05 21:34:43,497 - INFO - downloader_core - Job 6: Merging segments into D:\05_05.ts...
+2026-01-05 21:34:54,619 - INFO - downloader_core - Job 6: Cleaning up temporary files.
+2026-01-05 21:34:54,973 - INFO - downloader_core - Job 6 state changed to COMPLETED
+2026-01-05 21:34:54,973 - INFO - downloader_core - Job 6: Download complete: D:\05_05.ts
+2026-01-05 21:36:44,555 - INFO - downloader_core - Job 5 state changed to MERGING
+2026-01-05 21:36:44,555 - INFO - downloader_core - Job 5: Merging segments into D:\05_04.ts...
+2026-01-05 21:36:57,875 - INFO - downloader_core - Job 5: Cleaning up temporary files.
+2026-01-05 21:36:58,326 - INFO - downloader_core - Job 5 state changed to COMPLETED
+2026-01-05 21:36:58,326 - INFO - downloader_core - Job 5: Download complete: D:\05_04.ts
+2026-01-05 21:51:59,852 - INFO - downloader_core - Job 7 state changed to ANALYZING
+2026-01-05 21:52:00,685 - INFO - downloader_core - Job 7: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e06.ttp.dub_120771/hls/720/index.m3u8
+2026-01-05 21:52:00,793 - INFO - downloader_core - Job 7: Found 908 segments.
+2026-01-05 21:52:00,794 - INFO - downloader_core - Job 7 state changed to DOWNLOADING
+2026-01-05 21:52:00,794 - INFO - downloader_core - Job 7: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_7
+2026-01-05 21:52:54,804 - INFO - downloader_core - Job 8 state changed to ANALYZING
+2026-01-05 21:52:55,230 - INFO - downloader_core - Job 8: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e07.ttp.dub_120772/hls/720/index.m3u8
+2026-01-05 21:52:55,321 - INFO - downloader_core - Job 8: Found 794 segments.
+2026-01-05 21:52:55,322 - INFO - downloader_core - Job 8 state changed to DOWNLOADING
+2026-01-05 21:52:55,322 - INFO - downloader_core - Job 8: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_8
+2026-01-05 21:53:22,725 - INFO - downloader_core - Job 9 state changed to ANALYZING
+2026-01-05 21:53:23,065 - INFO - downloader_core - Job 9: Playlist found: https://calypso.tortuga.tw/content/stream/serials/stranger.things.s05e08.ttp.dub_121098/hls/720/index.m3u8
+2026-01-05 21:53:23,178 - INFO - downloader_core - Job 9: Found 1540 segments.
+2026-01-05 21:53:23,179 - INFO - downloader_core - Job 9 state changed to DOWNLOADING
+2026-01-05 21:53:23,180 - INFO - downloader_core - Job 9: Temporary directory created at C:\Users\karpe\AppData\Local\Temp\hlsdl_9
+2026-01-05 21:59:02,411 - INFO - downloader_core - Job 7 state changed to MERGING
+2026-01-05 21:59:02,411 - INFO - downloader_core - Job 7: Merging segments into D:\05_06.ts...
+2026-01-05 21:59:14,433 - INFO - downloader_core - Job 7: Cleaning up temporary files.
+2026-01-05 21:59:14,771 - INFO - downloader_core - Job 7 state changed to COMPLETED
+2026-01-05 21:59:14,771 - INFO - downloader_core - Job 7: Download complete: D:\05_06.ts
+2026-01-05 22:01:46,899 - INFO - downloader_core - Job 8 state changed to MERGING
+2026-01-05 22:01:46,899 - INFO - downloader_core - Job 8: Merging segments into D:\05_07.ts...
+2026-01-05 22:01:57,327 - INFO - downloader_core - Job 8: Cleaning up temporary files.
+2026-01-05 22:01:57,586 - INFO - downloader_core - Job 8 state changed to COMPLETED
+2026-01-05 22:01:57,586 - INFO - downloader_core - Job 8: Download complete: D:\05_07.ts
+2026-01-05 22:08:50,921 - INFO - downloader_core - Job 9 state changed to MERGING
+2026-01-05 22:08:50,921 - INFO - downloader_core - Job 9: Merging segments into D:\05_08.ts...
+2026-01-05 22:09:16,947 - INFO - downloader_core - Job 9: Cleaning up temporary files.
+2026-01-05 22:09:17,617 - INFO - downloader_core - Job 9 state changed to COMPLETED
+2026-01-05 22:09:17,617 - INFO - downloader_core - Job 9: Download complete: D:\05_08.ts
+2026-01-06 18:45:18,348 - INFO - root - Shutting down... cancelling active jobs.

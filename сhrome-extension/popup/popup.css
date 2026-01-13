@@ -1,0 +1,245 @@
+:root {
+  --primary: #5c6bc0;
+  --secondary: #3949ab;
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --text: #ffffff;
+  --text-dim: #b0b0b0;
+  --accent: #4caf50;
+  --error: #f44336;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  width: 350px;
+  min-height: 400px;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--glass);
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #fff, #9fa8da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#clear-btn {
+  background: var(--glass);
+  border: none;
+  color: var(--text-dim);
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#clear-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  color: var(--error);
+}
+
+.video-list {
+  flex-grow: 1;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.video-item {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--glass);
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.video-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-url {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.video-quality {
+  background: var(--primary);
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.download-btn {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+.download-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+}
+
+.empty-state .icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.empty-state span {
+  font-size: 0.8rem;
+}
+
+.status-bar {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#cancel-btn:hover {
+  color: var(--error);
+  background: rgba(244, 67, 54, 0.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#progress-text {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

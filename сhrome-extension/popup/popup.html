@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLS Downloader</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Video Downloader</h1>
+      <button id="clear-btn" title="Очистити список">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"/></svg>
+      </button>
+    </header>
+
+    <div id="video-list" class="video-list">
+      <!-- Відео будуть додані динамічно -->
+      <div class="empty-state">
+        <div class="icon">🔍</div>
+        <p>Відео не знайдено</p>
+        <span>Відтворіть відео на сторінці, щоб воно з'явилося тут</span>
+      </div>
+    </div>
+
+    <div id="status-bar" class="status-bar hidden">
+      <div class="progress-info">
+        <span id="progress-text">Завантаження: 0%</span>
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-fill"></div>
+        </div>
+      </div>
+      <div class="status-controls">
+        <button id="pause-btn" class="control-btn" title="Пауза">⏸</button>
+        <button id="resume-btn" class="control-btn hidden" title="Продовжити">▶</button>
+        <button id="cancel-btn" class="control-btn" title="Скасувати">✕</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>HLS Downloader v1.0.0</p>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

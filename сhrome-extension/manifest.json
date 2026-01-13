@@ -1,0 +1,48 @@
+{
+    "manifest_version": 3,
+    "name": "HLS Video Downloader",
+    "version": "1.0.0",
+    "description": "Завантаження HLS відео з .m3u8 плейлистів",
+    "permissions": [
+        "storage",
+        "downloads",
+        "activeTab",
+        "webRequest",
+        "offscreen"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": "icons/icon.svg"
+    },
+    "icons": {
+        "128": "icons/icon.svg"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "lib/*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}

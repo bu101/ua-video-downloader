@@ -173,11 +173,11 @@ export async function downloadVideo(playlist, state, controls, onProgress, title
         await Promise.all(Array.from(pendingWrites));
     }
 
-    // Витягуємо назву файлу (пріоритет за заголовком сторінки)
-    let fileName = 'video.ts';
+    // Витягуємо назву файлу
+    let baseName = 'video';
     if (title) {
         // Очищаємо назву від заборонених символів
-        fileName = title.replace(/[\\/:*?"<>|]/g, '_').trim() + '.ts';
+        baseName = title.replace(/[\\/:*?"<>|]/g, '_').trim();
     } else {
         try {
             const urlStr = playlist.url.split('?')[0];
@@ -185,14 +185,26 @@ export async function downloadVideo(playlist, state, controls, onProgress, title
             const lastPart = parts[parts.length - 1];
             if (lastPart.includes('.m3u8') && parts.length > 1) {
                 const folderName = parts[parts.length - 2];
-                fileName = folderName.length > 2 ? `${folderName}.ts` : `video_${Date.now()}.ts`;
+                baseName = folderName.length > 2 ? folderName : `video_${Date.now()}`;
             } else {
-                fileName = lastPart.replace('.m3u8', '') + '.ts';
+                baseName = lastPart.replace('.m3u8', '');
             }
         } catch (e) {
-            fileName = `video_${Date.now()}.ts`;
+            baseName = `video_${Date.now()}`;
         }
     }
+
+    // Шукаємо сезон/серію в URL (наприклад, s01e02)
+    const seriesMatch = playlist.url.match(/[sS]\d+[eE]\d+/i);
+    if (seriesMatch) {
+        const seriesInfo = seriesMatch[0].toUpperCase();
+        // Додаємо якщо цього ще немає в назві
+        if (!baseName.toUpperCase().includes(seriesInfo)) {
+            baseName += ` ${seriesInfo}`;
+        }
+    }
+
+    const fileName = baseName + '.ts';
 
     // Повертаємо метадані. Самі дані вже в IndexedDB
     return {

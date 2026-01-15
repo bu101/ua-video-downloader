@@ -33,6 +33,9 @@ function stopKeepAlive() {
   }
 }
 
+// Зберігання посилань, що перевіряються прямо зараз (щоб уникнути дублів та циклів)
+const pendingCheck = new Set();
+
 // Слухаємо всі мережеві запити
 chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
@@ -40,54 +43,76 @@ chrome.webRequest.onBeforeRequest.addListener(
 
     // Перевіряємо чи це .m3u8 файл
     if (url.includes('.m3u8')) {
-      console.log('Found .m3u8 URL:', url);
-
-      // Додаємо до списку якщо ще немає
-      const exists = foundVideos.some(video => video.url === url);
-      if (!exists) {
-        const createVideoInfo = (title = 'Без назви') => {
-          const videoInfo = {
-            url: url,
-            timestamp: new Date().toISOString(),
-            tabId: details.tabId,
-            title: title,
-            quality: detectQuality(url)
-          };
-          foundVideos.push(videoInfo);
-          chrome.storage.local.set({ foundVideos: foundVideos });
-          chrome.runtime.sendMessage({ type: 'NEW_VIDEO_FOUND', video: videoInfo }).catch(() => { });
-          chrome.action.setBadgeText({ text: foundVideos.length.toString() });
-          chrome.action.setBadgeBackgroundColor({ color: '#4CAF50' });
-        };
-
-        if (details.tabId > -1) {
-          chrome.tabs.get(details.tabId, (tab) => {
-            if (chrome.runtime.lastError || !tab) {
-              createVideoInfo();
-            } else {
-              createVideoInfo(tab.title);
-            }
-          });
-        } else {
-          createVideoInfo();
-        }
-      }
+      handleVideoDiscovery(url, details);
     }
   },
   { urls: ["<all_urls>"] }
 );
 
+async function handleVideoDiscovery(url, details) {
+  if (pendingCheck.has(url)) return;
+
+  // Додаємо до списку якщо ще немає
+  const exists = foundVideos.some(video => video.url === url);
+  if (exists) return;
+
+  pendingCheck.add(url);
+  try {
+    // Отримуємо структуру плейлиста через існуючу функцію
+    const playlist = await parseM3U8(url);
+
+    // ПОРІГ: Ігноруємо якщо блоків замало (наприклад, менше 10)
+    // Рекламні вставки зазвичай дуже короткі і мають 1-5 блоків.
+    if (playlist.segments.length < 10) {
+      console.log(`Фільтрація реклами/уривку (${playlist.segments.length} сегментів): ${url}`);
+      return;
+    }
+
+    const createVideoInfo = (title = 'Без назви') => {
+      // Подвійна перевірка після асинхронної операції
+      if (foundVideos.some(video => video.url === url)) return;
+
+      const videoInfo = {
+        url: url,
+        timestamp: new Date().toISOString(),
+        tabId: details.tabId,
+        title: title,
+        quality: detectQuality(url)
+      };
+      foundVideos.push(videoInfo);
+      chrome.storage.local.set({ foundVideos: foundVideos });
+      chrome.runtime.sendMessage({ type: 'NEW_VIDEO_FOUND', video: videoInfo }).catch(() => { });
+      chrome.action.setBadgeText({ text: foundVideos.length.toString() });
+      chrome.action.setBadgeBackgroundColor({ color: '#4CAF50' });
+    };
+
+    if (details.tabId > -1) {
+      chrome.tabs.get(details.tabId, (tab) => {
+        if (chrome.runtime.lastError || !tab) {
+          createVideoInfo();
+        } else {
+          createVideoInfo(tab.title);
+        }
+      });
+    } else {
+      createVideoInfo();
+    }
+  } catch (error) {
+    console.error('Не вдалося проаналізувати .m3u8:', url, error);
+  } finally {
+    pendingCheck.delete(url);
+  }
+}
+
 // Визначення якості з URL
 function detectQuality(url) {
-  const qualityMatch = url.match(/\/(\d+p?)\//);
-  if (qualityMatch) {
-    return qualityMatch[1];
-  }
-
-  // Шукаємо числа типу 720, 1080 тощо
-  const resolutionMatch = url.match(/\/(\d{3,4})\//);
-  if (resolutionMatch) {
-    return resolutionMatch[1] + 'p';
+  // Залишаємо лише пошук стандартних значень роздільної здатності в папках (наприклад, /480/)
+  // Це найнадійніший спосіб, який ігнорує рекламу, дати в назвах та випадкові індекси.
+  const folderMatch = url.match(/\/(240|360|480|720|1080|1440|2160)\//g);
+  if (folderMatch) {
+    // Беремо останній збіг, бо він найближчий до самого відеофайлу
+    const lastFolder = folderMatch[folderMatch.length - 1];
+    return lastFolder.replace(/\//g, '') + 'p';
   }
 
   return 'Unknown';
